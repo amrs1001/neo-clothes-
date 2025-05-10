@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Checkout Form</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"> 
+
+<link rel="stylesheet" href="css/checkout.css">
+<link rel="icon" type="image/x-icon" href="images/Logo-removebg-preview (1).png" />
+
+</head>
+<body>
+  <h2>Checkout | NEO</h2>
+  <div class="checkout">
+      <div class="information">
+          <form id="form" action="/checkout" method="POST">
+              <h3>Billing Address</h3>
+              <label for="fname">Full Name</label>
+              <input type="text" name="fullName" id="Name" placeholder="Full name" >
+              <div id="fullNameError" class="error"></div>
+
+              <label for="email"> Email</label>
+              <input type="email" name="email" id="email" placeholder="email" >
+              <div id="emailError" class="error"></div>
+
+              <label for="adress"> Address</label>
+              <input type="text" name="address" id="adress" placeholder="Addess" >
+              <div id="adressError" class="error"></div>
+
+              <label for="phone">Phone Number</label>
+              <input type="text" name="phone" id="phone" placeholder="phone number" >
+              <div id="phoneError" class="error"></div>
+
+              <div class="divContent">
+                  <label for="Governorate">Governorate:</label><br>
+                  <select id="state" name="state" required>
+                      <option value="Alexandria">Alexandria</option>
+        <option value="Aswan">Aswan</option>
+        <option value="Assiut">Assiut</option>
+        <option value="Beheira">Beheira</option>
+        <option value="Beni Suef">Beni Suef</option>
+        <option value="Cairo">Cairo</option>
+        <option value="Dakahlia">Dakahlia</option>
+        <option value="Damietta">Damietta</option>
+        <option value="Fayoum">Fayoum</option>
+        <option value="Gharbia">Gharbia</option>
+        <option value="Giza">Giza</option>
+        <option value="Ismailia">Ismailia</option>
+        <option value="Kafr el-Sheikh">Kafr el-Sheikh</option>
+        <option value="Matrouh">Matrouh</option>
+        <option value="Minya">Minya</option>
+        <option value="Menofia">Menofia</option>
+        <option value=" North Sinai"> North Sinai</option>
+        <option value="Port Said">Port Said</option>
+        <option value="Qualyubia">Qualyubia</option>
+        <option value="Qena">Qena</option>
+        <option value="Red Sea">Red Sea</option>
+        <option value=" Al-Sharqia"> Al-Sharqia</option>
+        <option value="Soha">Soha</option>
+        <option value="South Sinai">South Sinai</option>
+        <option value="Suez">Suez</option>
+        <option value="Luxor">Luxor</option>
+                  </select>
+              </div>
+
+              <h3>Payment</h3>
+              <input type="radio" id="cash" name="paymentMethod" value="cash">
+              <label for="cash">Cash</label>
+              <div id="cashMessage">You will pay when the delivery comes to your home.</div>
+
+              <input type="radio" id="card" name="paymentMethod" value="card" checked>
+              <label for="card">Credit/Debit Card</label>
+
+              <div id="visaDetails">
+                  <label for="cname">Name on Card</label>
+                  <input type="text" name="cardDetails[nameOnCard]" id="cname" placeholder="Ahmed">
+                  <div id="cnameError" class="error"></div>
+
+                  <label for="ccnum">Credit card number</label>
+                  <input type="text" name="cardDetails[cardNumber]" id="ccnum" placeholder="1111-2222-3333-4444">
+                  <div id="ccnumError" class="error"></div>
+
+                  <label for="expmonth">Exp Month</label>
+                  <input type="text" name="cardDetails[expMonth]" id="expmonth" placeholder="04">
+                  <div id="expmonthError" class="error"></div>
+
+                  <label for="expyear">Exp Year</label>
+                  <input type="text" name="cardDetails[expYear]" id="expyear" placeholder="2027">
+                  <div id="expyearError" class="error"></div>
+
+                  <label for="cvv">CVV</label>
+                  <input type="text" name="cardDetails[cvv]" id="cvv" placeholder="123">
+                  <div id="cvvError" class="error"></div>
+              </div>
+
+              <button type="submit" id="createAccountButton">Confirm Order</button>
+          </form>
+      </div>
+  </div>
+
+<div class="scroll">
+      <% if (shoppingCart && shoppingCart.products && shoppingCart.products.length > 0) { %>
+        <% shoppingCart.products.forEach(product => { %>
+            <% if (product.productId) { %>
+                <div class="Product-1">
+                    <a href="/product/<%= product.productId._id %>">
+                        <img src="/images/<%= product.productId.image %>" alt="<%= product.productId.name %>">
+                    </a>
+                    <p>Product: <%= product.productId.name %></p>
+                    <h4>Price: <%= product.productId.price %> EGP</h4> 
+                    <span>Quantity: <%= product.quantity %></span>
+
+                </div>
+            <% } %>
+        <% }); %>
+    <% } else { %>
+        <p>Your cart is empty</p>
+    <% } %>
+
+      </div>
+
+
+
+<script src="js/register.js">
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,325 @@
+/* @import url("https://fonts.googleapis.com/css2?family=Jersey+25&display=swap"); */
+body {
+  height: 100svh;
+  width: 100%;
+}
+* {
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  padding: 0px;
+  margin: 0px;
+  scroll-behavior: smooth;
+
+}
+
+.AdminNavBar {
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 100%;
+    width: 9rem;
+    border: none;
+    outline: none;
+}
+
+  .navBar:hover {
+    background-color:grey;
+}
+.navBar:focus{
+  background-color: black;
+}
+.navBar:active{
+  background-color: white;
+  color: black;
+}
+.navBar{
+    padding: 2rem;
+    background-color: black;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    border: none;
+}
+
+.tabcontent {
+    color: black;
+    background-color: white;
+    display: none;
+    padding: 0px 20px;
+    height: 100%;
+    width: 100%;
+  }
+#AddUser {
+    position: fixed;
+    color: white;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color:black;
+    padding: 20px;
+    border: 9px solid white;
+    display: none;
+    flex-direction: column;
+}
+#AddUser input{
+  /* margin: 0.5rem; */
+  line-height: 25px;
+  width: 300px;
+}
+#AddUser h2{
+  color: white;
+}
+#AddUser button{
+  color: black;
+  background-color: white;
+  display: flex;
+  font-size: 1.2rem;
+
+}#EditUser {
+  position: fixed;
+  color: white;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:black;
+  padding: 20px;
+  border: 9px solid white;
+  display: none;
+  flex-direction: column;
+}
+#EditUser input{
+margin: 0.5rem;
+line-height: 34px;
+width: 300px;
+}
+#EditUser h2{
+color: white;
+}
+#EditUser button{
+color: black;
+background-color: white;
+display: flex;
+font-size: 1.2rem;
+
+}
+.UsersPage-button button{
+  color: black;
+  background-color: white;
+  float: right;
+  border-radius: 30rem;
+  padding: 0.5rem;
+  margin: 0.1rem;
+  display: flex;
+  font-size: 1.2rem;
+}
+
+#AddProduct {
+  position: fixed;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:white;
+  padding: 20px;
+  border: 9px solid black;
+  display: none;
+  border-radius: 2rem;
+  flex-direction: column;
+}
+#AddProduct input{
+  background-color: white;
+  width:100%; 
+  line-height:34px ;
+  border:0.2rem;
+  border-color:black ;
+  border-style: groove;
+  color: black;
+  font-size: 1.5em;
+}
+#AddProduct h2{
+color: black;
+}
+#AddProduct button{
+color: black;
+background-color: white;
+display: flex;
+font-size: 1.2rem;
+
+}#EditProduct {
+
+overflow: auto; /* Enable scrolling */
+
+
+position: fixed;
+  color: black;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color:white;
+  padding: 20px;
+  border: 9px solid black;
+  display: none;
+  border-radius: 2rem;
+  flex-direction: column;
+}
+#EditProduct input{
+margin: 0.5rem;
+line-height: 34px;
+width: 300px;
+}
+#EditProduct h2{
+color: white;
+}
+#EditProduct button{
+color: black;
+background-color: white;
+display: flex;
+font-size: 1.2rem;
+
+}
+.ProductsPage-button button{
+color: black;
+background-color: white;
+float: right;
+border-radius: 30rem;
+padding: 0.5rem;
+margin: 0.1rem;
+display: flex;
+font-size: 1.2rem;
+}
+
+  .tabcontent h1{
+color: black;  
+font-size: 4rem;
+padding-bottom: 0.5rem;
+text-align: center;
+}
+.tabcontent h2{
+    color: black;  
+    font-size: 2rem;
+    text-align: center;
+    }
+
+  .MyaccContainer{
+    display: flex;
+    margin-top: 0.5rem;
+    height: 100%;
+  }
+  .divContent{
+     display: flex;
+     flex-direction: column;
+     justify-content: flex-start;
+     padding: 0.7rem;
+
+  }
+  .order-table {
+    border-collapse: collapse;
+    width: 100%;
+    border-radius: 1rem;
+    overflow: hidden; /* This is important for rounding the borders */
+  }
+  
+  .order-table th, .order-table td {
+    border: 0.1rem solid black;
+    padding: 1rem;
+    text-align: left;
+  }
+  
+  .order-table thead {
+    background-color: black;
+  }
+  
+  .order-table thead th {
+    color: white;
+  }
+  
+  .order-table tbody tr {
+    background-color: white;
+  }
+  
+  .order-table tbody td {
+    color: black;
+  }
+
+  .input{
+    color: aqua;
+    position: absolute;
+    z-index: 999;
+    background-color: aqua;
+  }
+  
+  .Dashboard {
+  
+    padding: 20px;
+    margin-left: 250px; 
+  
+    
+  }
+  .insights{
+  
+    display: flex;
+    flex-direction: row;
+    padding: 2rem;
+  }
+  .box { 
+    height: 130px; 
+    width: 230px; 
+    /* top: 30%; */
+    border-radius: 20px; 
+    padding: 20px; 
+    display: flex; 
+    align-items: center; 
+    justify-content: space-around; 
+    cursor: pointer; 
+    color:white
+    
+  } 
+  .box:hover { 
+    transform: scale(1.08); 
+  } 
+    
+  .box:nth-child(1) { 
+    background-color: black;
+    display: flex;
+    margin: 2rem;
+  
+  } 
+  .box:nth-child(2) { 
+    background-color: black;
+    /* margin-left: 30%; */
+    display: flex;
+    margin: 2rem;
+  
+  } 
+  .box:nth-child(3) { 
+    background-color:black;
+    display: flex; 
+    margin: 2rem;
+    /* margin-left: 60%; */
+  } 
+  
+    
+  .box img { 
+    height: 50px; 
+  } 
+  .tabcontent .box h2 { 
+    color: pink; 
+  } 
+  #logout{
+
+
+    background-color:black;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    height: 100%;
+    width: 9rem;
+    border: none;
+    outline: none;
+  }
+  .error {
+    font-weight: bold; 
+    color: red;
+  }

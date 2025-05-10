@@ -1,0 +1,370 @@
+@import url("https://fonts.googleapis.com/css2?family=Jersey+25&display=swap");
+body{
+    margin: 0px;
+}
+
+head{
+    background-color: whitesmoke;
+}
+.headers{
+    display: flex;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}  
+.headers a{
+    margin:1.3em ;
+    padding: 1.3em;
+    text-decoration: none;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    color: black;
+    border-radius: 1.3em;
+    cursor: pointer;
+    
+    
+}
+.headers a:hover{
+    background-color: black;
+    color: white;
+    transition-duration: 0.4s;
+}
+.Hoodies{
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 200px;
+}
+.Hoodies .HoodieImg{
+    padding-left: 0;
+    padding-right: 0;
+    filter: brightness(50%);
+    object-fit: cover;
+
+    position: relative;
+}
+.Hoodies .hoodiestxt{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 128px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+.ListedHoodies{
+    display: flex;
+}
+.Product-1{
+    max-width: 16em;
+    background-color:white ;
+    padding: 1em;
+    margin-top: 40px;
+    margin-left: 40px;
+    box-shadow: 0 5px 5px #e1e1e1;
+    border-radius: 10px;
+    font-family: "Roboto",sans-serif;
+}
+.Product-1 img{
+    max-width: 100%;
+
+}
+.Product-1 h4{
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+.Product-1 div{
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Product-1:hover{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    transition-duration: 0.3s;
+}
+.Product-2{
+    max-width: 16em;
+    background-color:white ;
+    padding: 1em;
+    margin-top: 40px;
+    margin-left: 40px;
+    box-shadow: 0 5px 5px #e1e1e1;
+    border-radius: 10px;
+    font-family: "Roboto",sans-serif;
+}
+.Product-2 img{
+    max-width: 100%;
+
+}
+.Product-2 h4{
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+.Product-2 div{
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Product-2:hover{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    transition-duration: 0.3s;
+}
+/*End of hoodies section*/
+.Jackets{
+    margin-top: 200px;
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 200px;
+}
+.Jackets .JacketImg{
+    padding-left: 0;
+    padding-right: 0;
+    filter: brightness(50%);
+    object-fit: cover;
+
+    position: relative;
+}
+.Jackets .Jacketstxt{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 128px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+.ListedJackets{
+    display:flex;
+}
+.Jacket-1{
+    max-width: 16em;
+    background-color:white ;
+    padding: 1em;
+    margin-top: 40px;
+    margin-left: 40px;
+    box-shadow: 0 5px 5px #e1e1e1;
+    border-radius: 10px;
+    font-family: "Roboto",sans-serif;
+}
+.Jacket-1 img{
+    max-width: 100%;
+
+}
+.Jacket-1 h4{
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+.Jacket-1 div{
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Jacket-1:hover{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    transition-duration: 0.3s;
+}
+/*End of jackets section*/
+.Shirts{
+    position: relative;
+    text-align: center;
+    color: white;
+    margin-top: 200px;
+}
+.Shirts .SweaterImg{
+    padding-left: 0;
+    padding-right: 0;
+    filter: brightness(50%);
+    object-fit: cover;
+
+    position: relative;
+}
+.Shirts .Shirtstxt{
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 128px;
+    font-family: "Roboto", sans-serif;
+    font-weight: bold;
+}
+.ListedSweaters{
+    display:flex;
+
+}
+.Sweater-1{
+    max-width: 16em;
+    background-color:white ;
+    padding: 1em;
+    margin-top: 40px;
+    margin-left: 40px;
+    box-shadow: 0 5px 5px #e1e1e1;
+    border-radius: 10px;
+    font-family: "Roboto",sans-serif;
+}
+.Sweater-1 img{
+    max-width: 100%;
+
+}
+.Sweater-1 h4{
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+.Sweater-1 div{
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Sweater-1:hover{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    transition-duration: 0.3s;
+}
+.Sweater-2{
+    max-width: 16em;
+    background-color:white ;
+    padding: 1em;
+    margin-top: 40px;
+    margin-left: 40px;
+    box-shadow: 0 5px 5px #e1e1e1;
+    border-radius: 10px;
+    font-family: "Roboto",sans-serif;
+}
+.Sweater-2 img{
+    max-width: 100%;
+
+}
+.Sweater-2 h4{
+    font-size: 1.3em;
+    margin: 0.5em 0;
+}
+.Sweater-2 div{
+    font-size: 1.2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.Sweater-2:hover{
+    background-color: rgb(43, 42, 42);
+    color: white;
+    transition-duration: 0.3s;
+}
+footer{
+    background-color: rgb(158, 158, 158);
+    width: 100%;
+    display: flex;
+    font-family: "Jersey 25", sans-serif;
+    margin-top: 100px;
+
+}
+.footerContainer{
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+}
+.footerImage Img{
+    display: flex;
+    color: white;
+    width: 4rem;
+    justify-content: center;
+    position: absolute;
+}
+.footerImage{
+    object-fit: contain;
+}
+.footerConatcts{
+    display: flex;
+    padding: 0.5rem;
+
+}
+.footerConatcts a{
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: 0.3em;
+    text-transform: uppercase;
+    text-shadow: 2px;   
+}
+.footerBar{
+    display: flex;
+    background-color: white;
+    padding: 0.5rem;
+}
+.footerBar a{
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+
+}
+.footerBar a:hover{
+    color: deeppink;
+    transition: 0.5;
+filter: drop-shadow(15);
+}
+.footerSocial{
+    padding: 0.5rem;
+}
+.footerSocial p{
+    font-size: 1.1rem;
+    padding: -0.6rem;
+    margin: 0.5rem;
+}
+.footerSocial a{
+    padding: -0.5rem 0.5rem  0.5rem  0.5rem;
+    margin: 0.5rem;
+}
+.gobackpic{
+    padding: 0rem 2rem 2rem 2rem;
+}
+.gobackpic a img{
+    width: 30px;
+    border-radius: 1.5em;
+    
+}
+.gobackpic a img:hover{
+    background-color: rgb(255, 138, 183);
+    color: white;
+    transition-duration: 0.4s;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);
+}
+@media (max-width: 768px){
+    .footerBar a{
+    font-size: 1rem;
+}
+.footerConatcts a{
+    font-size: 1rem;
+}
+    
+}
+@media (max-width: 768px){
+    .overlay-button{
+    font-size: 1rem;
+}
+    .overlaySlide-button{
+    font-size: 2rem;
+}
+    
+}

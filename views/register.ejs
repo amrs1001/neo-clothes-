@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/register.css">
+    <title> login page | Neo </title>
+    <link rel="icon" type="image/x-icon" href="images/Logo-removebg-preview (1).png" />
+
+
+    <style>
+        .admin-login-form {
+            display: none;
+            margin-top: 10rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .register .admin-switch {
+            background: none;
+            border: none;
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+            font-size: 1rem;
+            padding: 0;
+            margin: 10px 0;
+        }
+
+        .register .admin-switch:hover {
+            color: darkblue;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div class="register" id="register">
+        <div id="mainFormWrapper" class="form-register sign-in">
+            <form id="form" method="post" action="/login" onsubmit="return validateLoginForm()">
+                <div class="h1">
+                    <h1>Sign In</h1>
+                </div>
+                <input type="email" id="email" placeholder="Email" name="email">
+                <div id="emailError" class="error"></div>
+
+                <input type="password" id="password" placeholder="Password" name="password">
+                <i class="fa-solid fa-eye fa-fade fa-sm" onclick="togglePasswordVisibility()"></i>
+                <div id="passwordError" class="error"></div>
+
+                <div class="password">
+                    <a href="/forgetPassword">Lost your password?</a>
+                </div>
+
+                <button id="createAccountButton" type="submit">Sign In</button>
+                <button type="button" class="admin-switch" onclick="toggleAdditionalForm()">Sign in as admin</button>
+
+                <div class="donot-have-account">
+                    <a href="/signUpRegister">Don't have an account yet?</a>
+                </div>
+
+                
+            </form>
+        </div>
+        <div class="admin-login-form" id="adminLoginForm" style="display: none;">
+            <form id="adminForm" method="post" action="/adminLogin" onsubmit="return validateAdminLoginForm()">
+                <div class="h1">
+                    <h1>Admin Sign In</h1>
+                </div>
+                <input type="email" id="adminEmail" placeholder="Email" name="email">
+                <div id="adminEmailError" class="error"></div>
+                <input type="password" id="adminPassword" placeholder="Password" name="password">
+                <i class="fa-solid fa-eye fa-fade fa-sm" onclick="toggleAdminPasswordVisibility()"></i>
+                <div id="adminPasswordError" class="error"></div>
+                <button type="submit">Sign In as Admin</button>
+                <!-- <input type="email" id="additionalEmail" placeholder="Admin Username" name="additionalEmail">
+                <input type="password" id="additionalPassword" placeholder="Admin Password" name="additionalPassword"> -->
+                <button type="button" onclick="toggleAdditionalForm()">Back</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+
+        // public/js/loginValidation.js
+
+        function togglePasswordVisibility() {
+            const input = document.getElementById('password');
+            if (input.type === 'password') {
+                input.type = 'text';
+            } else {
+                input.type = 'password';
+            }
+        }
+
+        function validateLoginForm() {
+            let valid = true;
+
+            const email = document.getElementById('email').value.trim();
+            const password = document.getElementById('password').value.trim();
+
+            // Reset errors
+            document.getElementById('emailError').textContent = '';
+            document.getElementById('passwordError').textContent = '';
+
+            // Email validation
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email)) {
+                document.getElementById('emailError').textContent = 'Invalid email format.';
+                valid = false;
+            }
+
+            // Password validation
+            if (password === '') {
+                document.getElementById('passwordError').textContent = 'Password is required.';
+                valid = false;
+            }
+
+            return valid;
+        }
+
+        function toggleAdminPasswordVisibility() {
+    const input = document.getElementById('adminPassword');
+    if (input.type === 'password') {
+      input.type = 'text';
+    } else {
+      input.type = 'password';
+    }
+  }
+
+  function validateAdminLoginForm() {
+    let valid = true;
+    const email = document.getElementById('adminEmail').value.trim();
+    const password = document.getElementById('adminPassword').value.trim();
+    document.getElementById('adminEmailError').textContent = '';
+    document.getElementById('adminPasswordError').textContent = '';
+
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!emailRegex.test(email)) {
+      document.getElementById('adminEmailError').textContent = 'Invalid email format.';
+      valid = false;
+    }
+
+    if (password === '') {
+      document.getElementById('adminPasswordError').textContent = 'Password is required.';
+      valid = false;
+    }
+
+    return valid;
+  }
+
+        // Toggle Additional Form
+        function toggleAdditionalForm() {
+            const adminLoginForm = document.getElementById('adminLoginForm');
+            const mainFormWrapper = document.getElementById('mainFormWrapper');
+
+            if (adminLoginForm.style.display === 'none' || adminLoginForm.style.display === '') {
+                adminLoginForm.style.display = 'block';
+                mainFormWrapper.classList.add('hidden');
+            } else {
+                adminLoginForm.style.display = 'none';
+                mainFormWrapper.classList.remove('hidden');
+            }
+        }
+
+
+    </script>
+
+</body>
+
+</html>

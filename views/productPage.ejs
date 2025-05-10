@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="/css/productPage.css?v=1.03"> 
+    <script>
+        function validate(){
+            var quantityInput = document.getElementById('quantity');
+            var stock = parseInt(document.getElementById('stock').textContent);
+            var quantity = parseInt(quantityInput.value);
+            var errorMessage = document.getElementById('error-message');
+            
+            if (quantity < 1 || quantity > stock) {
+                errorMessage.textContent = 'You can\'t buy that amount of clothes!';
+                return false;
+            } else{
+                errorMessage.textContent = '';
+            }
+            return true;
+        }
+    </script>
+    <title>Black Shirt</title>
+<div class="Order">
+<div class="OrderImg">
+    <a href="/shop"> <img src="/Images/goback.png" width="40px"></a>
+
+</div>
+<div class="Ordertxt">
+    <h2> Make Your Order</h2>
+
+</div>
+</div>
+</head>
+<body>
+
+<div class="Clothes">
+    <img src="/images/<%= product.image %>" height="700px">
+    <div class="Clothestxt">
+        <h2><%= product.name.toUpperCase() %></h2>
+        <p style="font-weight: bold;"><%= product.price %> EGP</p>
+        <p>Make an impression with our stylish clothes.</p>
+        <div class="toCart">
+            <span id="stock"><%= product.quantity %></span><span style="font-weight: bold">  in stock.</span><br><br>
+            <form id="form" method="post" action="/addToCart" onsubmit="return validate()">
+                <input type="number" name="quantity" id="quantity" min="1" max="100"><br>
+                <span id="error-message" class="error"></span><br>
+                <input type="hidden" name="productId" value="<%= product._id %>"><br>
+            
+            
+            <button type="submit" id="addtocart">ADD TO CART</button>
+            </form>
+        </div>
+        <div class="description">
+            <span style="font-weight: bold">Category </span><span><%= product.category %></span><br><br>
+            <h2>Description</h2>
+            <p>Stylish unisex clothes. Made from premium materials.</p>
+        </div>
+    </div>
+    
+</div>
+
+</body>
+<footer>
+    <img src="../images/logoWithoutBackground.png">
+
+</footer>
+</html>

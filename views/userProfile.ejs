@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO.EG</title>
+    <link rel="stylesheet" href="css/userProfile.css" />
+    <!-- page icon -->
+    <link rel="icon" type="image/x-icon" href="Images/Logo-removebg-preview (1).png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+
+<body>
+
+
+   
+
+
+    </div>
+
+
+    <!-- EL navigation bar bta3et el cart -->
+    <div id="myCart" class="Cartslide">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()"><i class="fa-solid fa-arrow-right"></i></a>
+
+        <div class="cart-products">
+
+            <div class="Product-1">
+                <img src="Images/Item1.jpg">
+                <h4>PINK HOODIE</h4>
+                <div>
+                    <span>800EGP</span>
+                    <button>-</button><span class="quantity">1</span><button>+</button>
+                </div>
+
+
+            </div>
+            <div class="Jacket-1">
+                <img src="Images/Jacket1.jpg">
+                <h4>Black Jacket</h4>
+                <div>
+                    <span>800EGP</span>
+                    <button>-</button><span class="quantity">1</span><button>+</button>
+                </div>
+
+            </div>
+            <div class="checkout-details">
+                <p>number of items: 2</p>
+
+                <p>total: 1600 £</p>
+
+                <button onclick="goToCheckout()" class="checkout-button">checkout</button>
+
+            </div>
+        </div>
+
+    </div>
+    <header>
+        <nav>
+            <div class="head">
+                <a href="/home"><img src="../images/logoWithoutBackground.png" weight="30%" /></a>
+            </div>
+            <div class="navigation">
+                <a href="/user_profile" title="Account"><i class="fa-solid fa-user"></i></a>
+                <a onclick="openCart()" href="#cart" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                <a href="/about" title="About neo"><i class="fa-solid fa-heart"></i></a>
+                <a href="/contact" title="Contact"><i class="fa-solid fa-square-phone"></i></a>
+                <!-- <span class="action">
+              <input type="text" placeholder="Search"> 
+              <i class="fa-solid fa-magnifying-glass"></i>
+            </span> -->
+            </div>
+        </nav>
+    </header>
+
+    <div class="userNavBar">
+      
+        <!-- <button class="navBar" onclick="openPage('Account')">My Account</button> -->
+        <button class="navBar" onclick="openPage('Orders')">Orders</button>
+        <!-- <button class="navBar" onclick="openPage('Addresses')">Addresses</button> -->
+        <button class="navBar" onclick="openPage('Settings')">Settings</button>
+        <button class="navBar" onclick="openPage('Account')">Privacy</button>
+        <button class="navBar" onclick="logout()">Logout</button>
+
+
+
+    </div>
+    <div class="MyaccContainer">
+        <div id="Account" class="tabcontent">
+
+            <h1>Hello,UserDb</h1>
+            <h2>Change Password</h2>
+            <form action="/submit_form_endpoint" method="POST">
+            <!-- change actionnnnnn and validate pass -->
+<div class="SettingsInputs">
+            <div class="divContent">
+                <p>New Password</p>
+                <input id="pass" type="password" placeholder="new password" name="pass"
+                    style="display: block;" required>
+
+            </div>
+
+
+            <div class="divContent">
+                <p>Confirm New Password</p>
+                <input id="passCon" type="password" placeholder="confirm new password" name="passcon"
+                    style="display: block;" required>
+
+
+            </div>
+            <button type="submit" class="submitSettings">Save Changes</button>
+            <!-- needs val -->
+        </div>
+    </form>
+
+
+            
+            
+
+        </div>
+
+        <div id="Orders" class="tabcontent">
+            <h2>Order History</h2>
+            <br>
+            <table class="order-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Date</th>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>123456</td>
+                        <td>2024-04-27</td>
+                        <td>Pink Hoodie</td>
+                        <td>800 EGP</td>
+                        <td>shipped</td>
+                    </tr>
+                    <tr>
+                        <td>124776</td>
+                        <td>2024-04-27</td>
+                        <td>Black Hoodie</td>
+                        <td>800EGP</td>
+                        <td>confirmed</td>
+                    </tr>
+
+                </tbody>
+            </table>
+        </div>
+
+        
+
+        <div id="Settings" class="tabcontent" style="display: block;">
+
+            <h1>Hello,<%= user.fullName %></h1>
+            <h2>Personal information</h2>
+
+            <div class="SettingsInputs">
+                <form action="/userProfile" method="POST">
+                    <!-- change action and put the location we want -->
+
+
+                    <div class="divContent">
+                        <p>Email</p>
+                         <h1><%= user.email %></h1>
+                    </div>
+
+                    <div class="divContent">
+                        <p>FullName</p>
+                        <input id="changeName" type="text" value="<%= user.fullName %>" name="name" style="display: block;"
+                            required>
+
+
+                    </div>
+
+                                       <div class="divContent">
+                        <p>Phone</p>
+                        <input id="changePhone" type="text" value="<%= user.phoneNumber %>" name="phone" style="display: block;"
+                            required>
+
+                    </div>
+
+                    <button type="submit" class="submitSettings">Save Changes</button>
+                    <button type="reset" class="resetSettings">Reset</button>
+                </form>
+            </div>
+
+        </div>
+
+
+
+    </div>
+    <footer>
+        <div class="footerContainer">
+            <div class="footerImage">
+                <a href=""><img src="Images/Logo-removebg-preview (1).png" alt=""></a>
+            </div>
+            <div class="footerConatcts">
+                <a><i class="fa-solid fa-phone-volume"></i>+20 1091651645</a>
+                <a><i class="fa-solid fa-location-dot"></i>Miuegypt</a>
+                <a><i class="fa-solid fa-envelope"></i>neo__eg@gmail.com</a>
+            </div>
+            <hr>
+            <div class="footerBar">
+                <a href="/home">Home</a>
+                <a href="register">Account</a>
+                <a href="/policy">Privacy Policy</a>
+                <a href="/contact">Support</a>
+                <a href="/about">About</a>
+            </div>
+            <div class="footerSocial">
+                <p>FOLLOW US</p>
+                <a href="https://www.instagram.com/neo__eg/"><i class="fa-brands fa-instagram fa-xl"
+                        style="color: #000000;"></i></a>
+                <a href="https://www.tiktok.com/@neo__eg"><i class="fa-brands fa-tiktok fa-xl"
+                        style="color: #000000;"></i></a>
+            </div>
+        </div>
+       </footer>
+       <script src="js/project.js"></script>
+</body>
+
+</html>

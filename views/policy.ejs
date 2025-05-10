@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/policy.css">
+    <link rel="stylesheet" href="css/footer.css">
+
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <title>Policy</title>
+</head>
+<body>
+  <div id="myAccount" class="AccountSlide">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeAcc()"><i class="fa-solid fa-arrow-right"></i></a>
+    <div class="AccountSideNav-img">
+      <img src="Images/Logo-removebg-preview (1).png" alt="">
+    </div> 
+    <div class="ifNotSign">
+    <a href="/register">Sign In</a>
+    <a href="/signupregister">Sign Up</a>
+    <hr>
+    </div>
+    <div class="ifSign">
+    <a href="/user_profile">My Profile</a>
+    <a onclick=logout()>LogOut</a>
+    </div>
+
+
+  </div>
+
+
+  <!-- EL navigation bar bta3et el cart -->
+  <div id="myCart" class="Cartslide">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeCart()"><i class="fa-solid fa-arrow-right"></i></a>
+    
+    <div class="cart-products">
+      
+        <div class="Product-1">
+          <img src="Images/Item1.jpg">
+          <h4>PINK HOODIE</h4>
+          <div>
+              <span>800EGP</span>
+              <button>-</button><span class="quantity">1</span><button>+</button>
+          </div>
+      
+
+      </div>
+      <div class="Jacket-1">
+        <img src="Images/Jacket1.jpg">
+        <h4>Black Jacket</h4>
+        <div>
+            <span>800EGP</span>
+            <button>-</button><span class="quantity">1</span><button>+</button>
+        </div>
+    
+    </div>
+    <div class="checkout-details">
+    <p>number of items: 2</p>
+    
+      <p>total: 1600 £</p>
+      
+      <button onclick="goToCheckout()" class="checkout-button">checkout</button>
+
+    </div>
+      </div>
+      
+  </div>
+
+    <div class="intro">
+        <h1 class="policy-header">
+            <span class="policy">Pol</span><span class="policy">icy.</span></h1>
+        </div>
+        
+         
+        
+
+        <div class="policies">
+          <header>
+            
+          <nav>
+            <div class="home">
+              <a href="/home"><i class="fa-solid fa-house"></i></a>
+
+
+            </div>
+            <div class="head">
+              <a href="/home"
+                ><img src="Images/Logo-removebg-preview (1).png" weight="30%"
+              /></a>
+            </div>
+            <div class="navigation">
+             <a onclick="openAcc()" title="Account"
+             ><i class="fas fa-user"></i
+              ></a>
+              <a onclick="openCart()" href="#cart" title="Cart"
+                ><i class="fas fa-shopping-cart"></i>
+              </a>
+              <a href="/about" title="About neo"
+                ><i class="fas fa-heart"></i
+              ></a>
+              <a href="/contact" title="Contact"
+                ><i class="fa fa-phone-square" aria-hidden="true"></i></a>
+             
+            </div>
+          </nav>
+          <script src="js/admin.js"></script>
+        </header>
+
+            <h2>NEO policy</h2>
+            <ul>
+                <li>No return, exchange only</li>
+                <li>size exchanges are allowed only when items are in a perfect condition 
+                    and returned within the NEO packaging you've received them in.</li>
+                <li>Fast shipping and delivery.</li>
+                <li>Quality guarantee for all our products.</li>
+                <li>Responsive customer support.</li>
+            </ul>
+
+            <hr>
+        </div>
+     
+        
+       <%- include('component/FooterNav.ejs') %>
+      
+<script src="js/policy.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CONTACT NEO</title>
+    <link rel="stylesheet" href="css/contact.css" />
+
+    <link rel="stylesheet" href="css/footer.css" />
+    <link rel="icon" type="image/x-icon" href="/images/logoWithoutBackground.png" />
+    <link>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+    <script src="js/contact.js"></script>
+
+    <header>
+
+        <div class="ContactHead">
+            <div class="BackToHome">
+                <a href="/home"><i class="fa-solid fa-arrow-left" style="color: #000000;"></i></a>
+            </div>
+            <h1>HOW CAN WE HELP YOU</h1>
+            <h3>We're here to assist you! If you have any questions or need support, our dedicated team is ready to
+                help. Just reach out to us, and we'll do our best to provide the assistance you need. Your satisfaction
+                is our priority, and we're committed to making your experience as smooth as possible.</h3>
+        </div>
+
+    </header>
+    <section class="contactInfo">
+        <h2 class="title">Get in touch</h2>
+        <div class="ContactsContent">
+
+            <div class="info">
+
+                <div class="icon"><i class="fa-solid fa-laptop"></i></div>
+
+                <div class="information">
+                    <h3>Call us</h3>
+                    <p>+20 1091651645</p>
+                </div>
+            </div>
+
+            <div class="info">
+                <div class="icon"><i class="fa-solid fa-envelope"></i></div>
+
+                <div class="information">
+                    <h3>Email</h3>
+                    <p>neo__eg@gmail.com</p>
+                </div>
+            </div>
+
+
+            <div class="info">
+                <div class="information">
+                    <div class="icon"><i class="fa-solid fa-location-dot"></i></div>
+                    <h3>Location</h3>
+                    <p>misr international unversity</p>
+                </div>
+
+            </div>
+        </div>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="messageUs">
+        <!-- onsubmit="validate4()" -->
+        <h2 class="title2">Message Us</h2>
+
+        <form method="post" action="/contact" id="form" >
+
+            <div class="messageContainer">
+
+                <input type="text" id="namecontact" placeholder="Name" name="namecontact">
+                <div id="fullNameError" style="color: #ffffff;" class="error"></div>
+
+                <input type="email" id="emailcontact" placeholder="Email address" name="emailcontact">
+                <div id="emailError" style="color: #ffffff;" class="error"></div>
+
+                <input type="text" id="messagecontact" placeholder="Message" name="messagecontact">
+                <div id="messageError" style="color: #ffffff;" class="error"></div>
+
+            </div>
+
+            <button type="submit" id="submitContact"> Submit </button>
+
+        </form>
+    </section>
+    
+
+
+
+<%- include('component/FooterNav.ejs') %>
+
+<script>
+    function validateContactForm() {
+        const name = document.getElementById('namecontact').value.trim();
+        const email = document.getElementById('emailcontact').value.trim();
+        const message = document.getElementById('messagecontact').value.trim();
+
+        const fullNameError = document.getElementById('fullNameError');
+        const emailError = document.getElementById('emailError');
+        const messageError = document.getElementById('messageError');
+
+        let isValid = true;
+
+        // Reset error messages
+        fullNameError.textContent = '';
+        emailError.textContent = '';
+        messageError.textContent = '';
+
+        // Validate name
+        if (name === '') {
+            fullNameError.textContent = 'Name is required';
+            isValid = false;
+        }
+
+        // Validate email
+        if (email === '') {
+            emailError.textContent = 'Email is required';
+            isValid = false;
+        } else if (!isValidEmail(email)) {
+            emailError.textContent = 'Invalid email format';
+            isValid = false;
+        }
+
+        // Validate message
+        if (message === '') {
+            messageError.textContent = 'Message is required';
+            isValid = false;
+        }
+
+        return isValid;
+    }
+
+    function isValidEmail(email) {
+        // Basic email validation regex
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        return emailRegex.test(email);
+    }
+</script>
+
+
+</body>
+
+</html>

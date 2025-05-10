@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-image: url('../images/neo.jpg')   ;
+    
+     background-size: cover;
+     background-position: center; /*  background image fy alns */
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Center the background image w kol elklam fy ns saf7a bzbt  */
+    height: 100vh;
+    
+}
+
+
+/* bn3ml box abyd */
+.register{
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0);
+  position: relative;
+  overflow: hidden;
+  width:  650px;
+  max-width: 100%;
+  min-height:80%;
+}
+
+/* bnzbt fonts w msahat mben klam */
+.register p{
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px ;
+}
+
+
+
+/*bnzbt klam w hnkhly fy ns saf7a */
+.register form{
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40px;
+  height: 100%;
+}
+
+/*bnzbt alshkl w badding w nkhlehom fy ns */
+
+.form-register{
+  position: center;
+  top: 0;
+  height: 100%;
+  transition: all 0.6s ease-in-out;
+}
+
+/* bnzbt shkl bta3  email w password*/
+.register input{
+  background-color: #eee;
+  border: none;
+  margin: 8px ;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  width: 80%; 
+  max-width: 300px; 
+  text-align: center; 
+  outline: none;
+}
+
+
+
+.h1
+{
+color: #000000;
+margin: 5%;
+
+}
+
+
+
+
+
+
+/* bnzbt font bta3 forget password */
+.password {
+  margin-top: -5px;
+  margin-bottom: 3%; 
+  padding-right: 25%;
+  border:0%;
+}
+
+.password a {
+  color: #333; 
+  text-decoration: none; 
+  font-size: 14px; 
+  display: inline-block; 
+  transition: color 0.3s; 
+}
+
+
+.fa-eye {
+  position: absolute;
+  right: 183px;
+  top: 239px;
+  transform: translateY(-50%);
+}
+
+
+
+
+/* bnzbt shkl w font buttoms */
+.register button{
+  background-color: #000000; /* Green background */
+border: none; /* Remove borders */
+color: white; /* White text */
+padding: 15px 32px; /* Padding */
+text-align: center; /* Center text */
+text-decoration: none; /* Remove underline */
+display: inline-block; /* Make it a block element to center it */
+font-size: 16px; /* Font size */
+margin: 4px 2px; /* Margin */
+transition-duration: 0.4s; /* Transition duration */
+cursor: pointer; /* Cursor on hover */
+border-radius: 8px; /* Rounded corners */
+}
+
+.register button:hover {
+background-color: #45a049; /* Darker green on hover */
+}
+
+
+
+.error {
+  font-weight: bold; 
+  color: red;
+}
+
+
+
+
+/*dont have account style */
+
+.donot-have-account {
+    margin-top: 10px; 
+    text-align: center; 
+}
+
+.dont-have-account a {
+    color: #333; 
+    text-decoration: none; 
+    font-size: 14px; 
+    display: inline-block; 
+    transition: color 0.3s; 
+}
+
+
+
+.icons a{
+  background: #ecf0f3;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin: 0 10px;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: -3px -3px 7px #ffffff,
+              3px 3px 5px #ceced1;
+}
+.icons a:hover:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -3px -3px 7px #ffffff,
+              inset 3px 3px 5px #ceced1;
+}
+
+.icons a.goggle i{
+  color: #000000;
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons a.fb i {
+  color: #006eff;
+  width: 100%;
+  height: 100%; 
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+@media (max-width: 48rem) { /* 768px */
+  body {
+      height: auto;
+      padding: 1.25rem;
+  }
+
+  .register {
+      width: 90%;
+      min-height: auto;
+      padding: 1.25rem;
+  }
+
+  .register input {
+      width: 90%;
+      max-width: none;
+  }
+
+  .checkbox input,
+  .checkbox label {
+      margin-left: 0;
+      text-align: center;
+      width: 100%;
+  }
+
+  .checkbox label {
+      margin-top: 0.625rem;
+  }
+
+  .h1 {
+      margin: 1.25rem 0;
+      text-align: center;
+  }
+}
+
+@media (max-width: 30rem) { /* 480px */
+  .register {
+      width: 100%;
+      min-height: auto;
+      padding: 1.25rem;
+  }
+
+  .register input {
+      width: 95%;
+  }
+
+  .icons a {
+      height: 3.125rem;
+      width: 3.125rem;
+  }
+
+  .register button {
+      width: 95%;
+      padding: 0.625rem;
+  }
+
+  .h1 {
+      font-size: 1.5rem;
+  }
+}

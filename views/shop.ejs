@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>NEO.EG</title>
+        <link rel="icon" type="image/x-icon" href="/images/logoWithoutBackground.png" />
+        <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"/>
+        <title>Neo | Shop</title>
+        <link rel="stylesheet" href="css/shop.css">
+        <link rel="stylesheet" href="css/footer.css">
+
+
+    <div style="display: flex; padding-top: 30px;">
+        <div class="gobackpic">
+            <a href="/home"> <img src="/images/goback.png" width="40px"></a>
+        </div>
+        <div class = "headers">
+        <a href="#hoodies">Hoodies</a> 
+        <a href="#shirts">Shirts</a>
+        <a href="#jackets">Jackets</a>
+        </div>
+    </div>
+    </head>
+    <body>
+        
+    
+    <!-- Hoodies Section -->
+    <div class="Hoodies" id="hoodies">
+        <div>
+            <img class="HoodieImg" src="/images/hoodies2.jpg" alt="This is a hoodie picture!" height="500px" width="100%">
+            <p class="hoodiestxt">HOODIES</p>
+        </div>
+    </div>
+
+    <div class="ListedHoodies">
+        <% hoodies.forEach(product => { %>
+            <div class="Product-1">
+                <a href="/product/<%= product._id %>">
+                    <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                </a>
+                <h4><%= product.name %></h4>
+                <div>
+                    <span><%= product.price %> EGP</span>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- shirts Section -->
+    <div class="Jackets" id="shirts">
+        <img class="JacketImg" src="/images/Jackets.jpg" alt="This is a Shirt picture!" height="500px" width="100%">
+        <p class="Jacketstxt">SHIRTS</p>
+    </div>
+
+    <div class="ListedJackets">
+        <% shirts.forEach(product => { %>
+            <div class="Jacket-1">
+                <a href="/product/<%= product._id %>">
+                    <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                </a>
+                <h4><%= product.name %></h4>
+                <div>
+                    <span><%= product.price %> EGP</span>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+
+    <!-- Jackets Section -->
+    <div class="Jackets" id="jackets">
+        <img class="JacketImg" src="/images/Jackets.jpg" alt="This is a Jacket picture!" height="500px" width="100%">
+        <p class="Jacketstxt">JACKETS</p>
+    </div>
+
+    <div class="ListedJackets">
+        <% jackets.forEach(product => { %>
+            <div class="Jacket-1">
+                <a href="/product/<%= product._id %>">
+                    <img src="/images/<%= product.image %>" alt="<%= product.name %>">
+                </a>
+                <h4><%= product.name %></h4>
+                <div>
+                    <span><%= product.price %> EGP</span>
+                </div>
+            </div>
+        <% }); %>
+    </div>
+    
+
+    <%- include('component/FooterNav.ejs') %>
+    </body>
+    
+
+
+</html>

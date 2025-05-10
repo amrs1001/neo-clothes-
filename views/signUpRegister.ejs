@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="css/signUpRegister.css">
+    <title>Sign-up page | Neo</title>
+    <link rel="icon" type="image/x-icon" href="images/Logo-removebg-preview (1).png">
+</head>
+
+<body>
+    <!-- start code -->
+    <div class="register" id="register">
+        <!-- code sign up -->
+        <div class="form-register sign-up">
+          <form id="form" action="/signUpRegister" method="post" onsubmit="return validate(event)">
+    
+            <div class="h1">
+              <h1>Create your account</h1>
+            </div>
+    
+            <input type="text" id="fullName" placeholder="Full Name" name="fullName">
+            <div id="fullNameError" class="error"></div>
+    
+            <input type="email" id="email" placeholder="Email" name="email">
+            <div id="emailError" class="error"></div>
+    
+            <input type="text" id="phone" placeholder="Phone number" name="phoneNumber">
+            <div id="phoneError" class="error"></div>
+    
+            <input type="password" id="password" placeholder="Password" name="password">
+            <i class="fa-solid fa-eye fa-fade fa-sm" onclick="show()"></i>
+            <div id="passwordError" class="error"></div>
+    
+            <input type="password" id="password2" placeholder="Confirm Password" name="confirmPassword">
+            <i class="fa-solid fa-eye fa-fade fa-2" onclick="show2()"></i>
+            <div id="confirmPasswordError" class="error"></div>
+    
+            <div class="checkbox">
+              <input type="checkbox" id="check">
+              <label for="check">
+                You confirm that you have read our <a href="privacy_policy.html">Privacy Policy</a>
+                and accept our <a href="terms_conditions.html">Terms & Conditions</a>
+              </label>
+              <div id="termsError" class="error"></div>
+            </div>
+    
+            <button type="submit" id="createAccountButton">Create account</button>
+          </form>
+        </div>
+      </div>
+    
+      <script>
+        function show() {
+          const passwordField = document.getElementById('password');
+          passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+        }
+    
+        function show2() {
+          const passwordField = document.getElementById('password2');
+          passwordField.type = passwordField.type === 'password' ? 'text' : 'password';
+        }
+    
+        function validate(event) {
+          let isValid = true;
+    
+          const fullName = document.getElementById('fullName').value.trim();
+          const email = document.getElementById('email').value.trim();
+          const phone = document.getElementById('phone').value.trim();
+          const password = document.getElementById('password').value.trim();
+          const confirmPassword = document.getElementById('password2').value.trim();
+          const check = document.getElementById('check').checked;
+    
+          // Reset errors
+          document.getElementById('fullNameError').textContent = '';
+          document.getElementById('emailError').textContent = '';
+          document.getElementById('phoneError').textContent = '';
+          document.getElementById('passwordError').textContent = '';
+          document.getElementById('confirmPasswordError').textContent = '';
+          document.getElementById('termsError').textContent = '';
+    
+          // Validate Full Name
+          if (fullName === '') {
+            document.getElementById('fullNameError').textContent = 'Full Name is required';
+            isValid = false;
+          }
+    
+          // Validate Email
+          const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (email === '') {
+            document.getElementById('emailError').textContent = 'Email is required';
+            isValid = false;
+          } else if (!emailPattern.test(email)) {
+            document.getElementById('emailError').textContent = 'Invalid email format';
+            isValid = false;
+          }
+    
+          // Validate Phone Number
+          const phonePattern = /^\d{11}$/;
+          if (phone === '') {
+            document.getElementById('phoneError').textContent = 'Phone number is required';
+            isValid = false;
+          } else if (!phonePattern.test(phone)) {
+            document.getElementById('phoneError').textContent = 'Invalid phone number';
+            isValid = false;
+          }
+    
+          // Validate Password
+          if (password === '') {
+            document.getElementById('passwordError').textContent = 'Password is required';
+            isValid = false;
+          } else if (password.length < 6) {
+            document.getElementById('passwordError').textContent = 'Password must be at least 6 characters';
+            isValid = false;
+          }
+    
+          // Validate Confirm Password
+          if (confirmPassword === '') {
+            document.getElementById('confirmPasswordError').textContent = 'Confirm Password is required';
+            isValid = false;
+          } else if (confirmPassword !== password) {
+            document.getElementById('confirmPasswordError').textContent = 'Passwords do not match';
+            isValid = false;
+          }
+    
+          // Validate Terms and Conditions
+          if (!check) {
+            document.getElementById('termsError').textContent = 'You must accept the terms and conditions';
+            isValid = false;
+          }
+      if (isValid) {
+                alert('Account created successfully!');
+            }
+          // If form is not valid, prevent form submission
+          if (!isValid) {
+            event.preventDefault();
+          }
+    
+          return isValid;
+        }
+      </script>
+
+
+
+
+</body>
+
+</html>

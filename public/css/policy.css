@@ -1,0 +1,467 @@
+@import url('https://fonts.googleapis.com/css2?family=Jersey+25&display=swap');
+.body{
+  height: 100svh;
+  width:100%;
+
+}
+* {
+  font-family: "Jersey 25", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  box-sizing: border-box;
+  padding: 0px;
+  margin: 0px;
+  
+}
+.AccountSlide {
+  position: absolute; 
+  height: 100%; 
+  background-color: black; 
+  color: aliceblue;
+  width: 0; 
+  z-index: 999;
+  top: 0; 
+  right:0;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding-top: 4rem; 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+}
+.AccountSlide a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 3.5rem;
+  color: grey;
+  display: block;
+  transition: 0.3s;
+}
+.AccountSlide a:hover {
+  color: pink;
+}
+
+.AccountSlide .closebtn {
+  position: absolute;
+  top: 0;
+  left: 0.2rem;
+  font-size: 2.2rem;
+  margin-top: 1rem;
+}
+.AccountSideNav-img{
+  background-color: white;
+  display: flex;
+  justify-content: space-around;
+  margin: 1rem;
+}
+.AccountSlide img{
+  color: white;
+  width: 10rem;
+}
+.ifSign{
+  display: block;
+}
+
+.Cartslide {
+  position: absolute; 
+  height: 100%; 
+  background-color: black; 
+  color: aliceblue;
+  width: 0; 
+  z-index: 999;
+  top: 0; 
+  right:0;
+  overflow-x:hidden; /* Disable horizontal scroll */
+  overflow-y: scroll;
+  padding-top: 4rem; 
+  margin-bottom: 4rem; 
+  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
+  display: flex;
+}
+
+
+.Cartslide a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: grey;
+  display: block;
+  transition: 0.3s;
+}
+
+
+.Cartslide a:hover {
+  color: white;
+}
+
+
+.Cartslide .closebtn {
+  position: absolute;
+  top: 0;
+  left: 0.2rem;
+  font-size: 1.5rem;
+  margin-top: 1rem;
+}
+.cart-products{
+  display:flexbox;
+  margin-bottom: 100px;
+}
+.cart-products img {
+  filter: brightness(100%);
+}
+
+.Product-1{
+  max-width: 16em;
+  background-color:grey ;
+  padding: 1em;
+  margin-top: 40px;
+  margin-left: 40px;
+  /* box-shadow: 0 5px 5px #e1e1e1; */
+  border-radius: 10px;
+  font-family: "Roboto",sans-serif;
+}
+.Product-1 img{
+  max-width: 100%;
+
+}
+.Product-1 h4{
+  font-size: 1.3em;
+  margin: 0.5em 0;
+}
+.Product-1 div{
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Product-1 button{
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 1em;
+}
+.Product-1 button:hover{
+  cursor: pointer;
+  background-color: grey;
+
+  transition-duration: 0.3s;
+}
+.Product-1:hover{
+  background-color: white;
+  color: black;
+  transition-duration: 0.3s;
+}
+.Jacket-1{
+  max-width: 16em;
+  background-color:grey ;
+  padding: 1em;
+  margin-top: 40px;
+  margin-left: 40px;
+  /* box-shadow: 0 5px 5px #e1e1e1; */
+  border-radius: 10px;
+  font-family: "Roboto",sans-serif;
+}
+.Jacket-1 img{
+  max-width: 100%;
+
+}
+.Jacket-1 h4{
+  font-size: 1.3em;
+  margin: 0.5em 0;
+}
+.Jacket-1 div{
+  font-size: 1em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.Jacket-1 button{
+  background-color: black;
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 25px;
+  height: 25px;
+  font-size: 1em;
+}
+.Jacket-1 button:hover{
+  cursor: pointer;
+  background-color: gray;
+  transition-duration: 0.3s;
+}
+.Jacket-1:hover{
+  background-color: white;
+  color: black;
+  transition-duration: 0.3s;
+}
+.checkout-details{
+  margin: 40px;
+  color:white;
+  
+}
+.checkout-details p{
+  font-size: 2em;
+}
+
+.checkout-details .checkout-button{
+  padding: 10px 20px;
+  font-size: 2.5rem;
+  background-color: grey;
+  border: white;
+  border-radius: 1rem;
+  border-style: groove;
+  color: white;
+  margin: 1em 0em;
+}
+.checkout-details .checkout-button:hover{
+  background-color: transparent;
+}
+
+.BackToHome{
+  width: 2rem;
+  display: flex;
+  padding-left: 30px;
+  
+}
+.fa-solid.fa-house{
+  font-size: 1rem;
+  color: black;
+  padding: 10px;
+
+}
+.fa-solid.fa-house:hover{
+  background-color:pink ;
+  border-radius: 2rem;
+  color: white;
+  
+}
+
+/*header {
+  position: relative;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 80px;
+  background-color: #161616;
+}
+
+header h4 {
+  color: white;
+  position: absolute;
+  left: 10%;
+  bottom: 1rem;
+  font-size: 1.6rem;
+}*/
+.policies {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    /* max-width: 800px; */
+    margin: 0 auto;
+    padding: 20px;
+    width: 80%;
+    background-color: white;
+    clip-path: border-box;
+    border-radius: 3rem;
+    border-color: black;
+    border-style: outset;
+    margin-top: 40px;
+  }
+  
+  .policies h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  .policies ul {
+    list-style-type: disc;
+    padding-left: 20px;
+  }
+  
+  .policies li {
+    font-size: 1.2rem;
+    line-height: 1.5;
+    margin-bottom: 10px;
+  }
+  .policies a:hover {
+    background-color: pink;
+    color: white;
+  }
+
+.intro {
+  position: relative;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #161616;
+  transition: 1s;
+  
+}
+
+.policy-header {
+  position: absolute;
+  top: 40%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+}
+
+.policy {
+  position: relative;
+  display: inline-block;
+  bottom: -20px;
+  opacity: 0;
+}
+
+.policy.active {
+  bottom: 0;
+  opacity: 1;
+  transition: ease-in-out 0.5s;
+}
+
+.policy.fade {
+  bottom: 150px;
+  opacity: 0;
+  transition: ease-in-out 0.8s;
+}
+.footer{
+    background-color: white;
+    width: 100%;
+    display: flex;
+  
+  }
+  .footerContainer{
+    background-color: white;
+    width: 100%;
+    flex-direction: column;
+  }
+  .footerImage Img{
+    display: flex;
+    color: white;
+    width: 4rem;
+    justify-content: center;
+    position: absolute;
+  }
+  .footerImage{
+    object-fit: contain;
+  }
+  .footerConatcts{
+    display: flex;
+    padding: 0.5rem;
+  
+  }
+  .footerConatcts a{
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center;
+    margin: 0.3em;
+    text-transform: uppercase;
+    text-shadow: 2px;
+   
+  }
+  .footerBar{
+    display: flex;
+    background-color: white;
+    padding: 0.5rem;
+  }
+  .footerBar a{
+    width: 100%;
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
+    font-size: 1.5rem;
+    text-decoration: none;
+    text-transform: uppercase;
+  
+  }
+  .footerBar a:hover{
+    color: deeppink;
+    transition: 0.5;
+  filter: drop-shadow(15);
+  }
+  .footerSocial{
+    padding: 0.5rem;
+  }
+  .footerSocial p{
+    font-size: 1.1rem;
+    padding: -0.6rem;
+    margin: 0.5rem;
+  }
+  .footerSocial a{
+    padding: -0.5rem 0.5rem  0.5rem  0.5rem;
+    margin: 0.5rem;
+  }
+  @media (max-width: 768px){
+    .footerBar a{
+      font-size: 1rem;
+    }
+    .footerConatcts a{
+      font-size: 1rem;
+    }
+  }
+  header {
+    background-color: white;
+    width: 100%;
+  }
+  .head {
+      width: 100%;
+      height: 10%;
+      background-color: white;
+      overflow: hidden;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .head img {
+      height: 8em;
+    }
+    .navigation {
+      text-align: right;
+      padding: 10px;
+    }
+    .navigation a {
+      color: black;
+      background-size: 100%;
+      width: 100%;
+      font-weight: 400;
+      font-size: 1.3em;
+      text-decoration: none;
+      justify-content: space-between;
+      min-height: 100vh;
+      padding: 20px;
+      margin: 0px;
+    }
+    @media only screen and (max-width: 768px) {
+      .Cartslide,
+      .AccountSlide {
+        width: 250px; /* Adjusted width for smaller screens */
+      }
+    
+      .AccountSlide a,
+      .Cartslide a {
+        font-size: 2rem; 
+      }
+    
+      .policies {
+        width: 90%; 
+        padding: 10px; 
+      }
+    
+      .footerBar a {
+        font-size: 1rem;
+    
+      .footerConatcts a {
+        font-size: 1rem; 
+      }
+    }
+  }

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NEO.EG</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/footer.css" />
+
+    <link rel="icon" type="image/x-icon" href="/images/logoWithoutBackground.png" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+
+</head>
+
+
+<body>
+    <script src="js/neoProject.js"></script>
+
+    <!-- EL navigation bar bta3et el cart -->
+    <div id="myCart" class="Cartslide">
+        <a href="javascript:void(0)" class="closebtn" onclick="closeCart()"><i class="fa-solid fa-arrow-right"></i></a>
+        <% let TotalQuantity = 0 %>
+        <% let TotalPrice = 0 %>
+        <div class="cart-products">
+            <script>
+                
+                function increaseQuantity(id, stock) {
+                    const quantityElement = document.getElementById(id);
+                    let currentQuantity = parseInt(quantityElement.innerText);
+        
+                    if (!isNaN(currentQuantity) && currentQuantity < stock) {
+                        currentQuantity++;
+                        quantityElement.innerText = currentQuantity;
+                        updateTotalPrice();
+                    }
+                }
+        
+                function decreaseQuantity(id) {
+                    const quantityElement = document.getElementById(id);
+                    let currentQuantity = parseInt(quantityElement.innerText);
+        
+                    if (!isNaN(currentQuantity) && currentQuantity > 1) {
+                        currentQuantity--;
+                        quantityElement.innerText = currentQuantity;
+                        updateTotalPrice();
+                    }
+                }
+
+                
+
+                function updateTotalPrice() {
+                let totalQuantity = 0;
+                let totalPrice = 0;
+
+                products.forEach((product, index) => {
+                    const quantity = parseInt(document.getElementById('quantity-' + index).innerText);
+                    totalQuantity += quantity;
+                    totalPrice += quantity * product.productId.price;
+                });
+
+                document.getElementById('totalQuantity').innerText = totalQuantity;
+                document.getElementById('totalPrice').innerText = totalPrice + ' EGP';
+            }
+            </script>
+
+                <% if (shoppingCart && shoppingCart.products && shoppingCart.products.length > 0) { %>
+                    
+                    <% shoppingCart.products.forEach(function(product, index) { %>
+                        
+                            <% if (product.productId) { %>
+                            <% TotalPrice += product.quantity*product.productId.price %>
+                        <% TotalQuantity += product.quantity %>
+                            <div class="Product-1">
+                                <a href="/product/<%= product.productId._id %>">
+                                    <img src="/images/<%= product.productId.image %>" alt="<%= product.productId.name %>">
+                                </a>
+                                <p><%= product.productId.name %></p>
+                                <h4><%= product.productId.price %> EGP</h4> 
+                                <div>
+                                    <button onclick="decreaseQuantity('quantity-<%= index %>')">-</button>
+                                    <span id="quantity-<%= index %>"><%= product.quantity %></span>
+                                    <button onclick="increaseQuantity('quantity-<%= index %>', '<%= product.productId.quantity %>')">+</button>
+                                </div>
+                            </div>
+                        <% } %>
+                    <% }); %>
+                <% } else { %>
+                    <p>Your cart is empty</p>
+                <% } %>
+        </div>
+
+        
+            
+            <div class="checkout-details">
+                <p>Number of items: <span id="totalQuantity" ><%= TotalQuantity %></span></p>
+                <p>Total: <span id="totalPrice" ><%= TotalPrice %></span> EGP</p>
+
+                <button onclick="goToCheckout()" class="checkout-button">checkout</button>
+
+            </div>
+        
+
+    </div>
+
+
+    <header>
+        <nav class="header1">
+
+            <!-- lOGO IN THE NAVIGATION BAR -->
+            <div class="headLogo"><a href="/home"><img src="/images/logoWithoutBackground.png" weight="30%" /></a>
+            </div>
+
+            <div class="navigation">
+
+                <!-- navigation bar search -->
+                <div class="NeoLeftNavigation">
+                    <div>
+                        <div id="mySideNavContent" class="mySideContent">
+                            <a href="javascript:void(0)" class="mySideNavContentClosebtn"
+                                onclick="mySideNavClosebtn()">&times;</a>
+                                
+                            <% if(!user) {%>
+                                <a href="/shop">Shop</a>
+                                <a href="/about">About Us</a>
+                                <a href="/contact">Contact Us</a>
+                                <a href='/signUpregister'>Sign Up</a>
+                                <a href='/register'>Login</a>
+
+                                <% } else { %> <a href='/userProfile'>Profile</a>
+                                <a href="/shop">Shop</a>
+                                <a href="/about">About Us</a>
+                                <a href="/contact">Contact Us</a>
+                                <a href='/logout' onclick="return confirmLogout()">Logout</a>
+                                <% } %>
+
+                        </div>
+                        <a class="NAVICON" style="font-size:30px;cursor:pointer" onclick="mySideNavopenNav()"><i
+                                class="fa-solid fa-bars" style="color: #000000;"></i></a>
+                    </div>
+                    <div class="navBarSearch">
+                        <form action="/search" method="GET">
+                            <input type="text" name="query" placeholder="Search for products" required>
+                            <button type="submit">
+                                <i class="fa-solid fa-magnifying-glass"></i>
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+
+                <!-- Navigation bar icons -->
+                <div class="navigationContent">
+                    <a onclick="openCart()" title="Cart"><i class="fa-solid fa-cart-shopping"></i></a>
+                </div>
+
+            </div>
+
+        </nav>
+    </header>
+
+    <!-- Slide show -------------------------------------------------------------------------------------------->
+    <div class="SlideShowphotos">
+        <div class="mySlidesShow fade">
+            <img src="/images/Slide.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                CREATIVITY
+                <button class="SlideShow-button" onclick=goToShop()>Shop now</button>
+            </div>
+        </div>
+
+        <div class="mySlidesShow fade">
+            <img src="/images/slideshow4.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                MODERNITY
+                <button class="SlideShow-button" onclick=goToShop()>Shop now</button>
+            </div>
+        </div>
+
+        <div class="mySlidesShow fade">
+            <img src="/images/slideshow5.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                CONFIDANCE
+                <button class="SlideShow-button" onclick="goToShop()">Shop now</button>
+            </div>
+        </div>
+
+        <div class="mySlidesShow fade">
+            <img src="/images/slide99.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                NEO
+                <button class="SlideShow-button" onclick="goToShop()">Shop now</button>
+            </div>
+        </div>
+
+        <div class="mySlidesShow fade">
+            <img src="/images/slideshow7.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                NEO
+                <button class="SlideShow-button" onclick="goToShop()">Shop now</button>
+            </div>
+        </div>
+
+        <div class="mySlidesShow fade">
+            <img src="/images/slideshow1.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                NEO
+                <button class="SlideShow-button" onclick="goToShop()">Shop now</button>
+            </div>
+        </div>
+        <div class="mySlidesShow fade">
+            <img src="/images/slideshow4.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                NEO
+                <button class="SlideShow-button" onclick="goToShop()">Shop now</button>
+            </div>
+        </div>
+        <div class="mySlidesShow fade">
+            <img src="/images/slideshow3.jpeg" />
+            <div class="slideshow-text slideImg-fade">
+                NEO
+                <button class="SlideShow-button" onclick="goToShop()">Shop now</button>
+            </div>
+        </div>
+    </div>
+    <script>
+        slider();
+    </script>
+    <!-- Line -------------------------------------------------------------------------------------------->
+    <div class="lineMarque">
+        <marquee scrollamount="20">
+            WHERE MODERNITY MEETS CREATIVITY. WHERE MODERNITY MEETS CREATIVITY.
+            WHERE MODERNITY MEETS CREATIVITY.WHERE MODERNITY MEETS CREATIVITY. WHERE
+            MODERNITY MEETS CREATIVITY. WHERE MODERNITY MEETS CREATIVITY.</marquee>
+    </div>
+
+    <!-- Video -------------------------------------------------------------------------------------------->
+    <div id="HomeVideo-container">
+        <video autoplay muted loop>
+            <source src="/images/homePageVideo.mp4" type="video/mp4" />
+        </video>
+        <div class="HomeVid-overlay">
+            <button class="HomeVideoOverlay-button" onclick="goToShop()">Shop now</button>
+            <br />
+            <p>shop exclusive products</p>
+        </div>
+    </div>
+
+    <%- include('component/FooterNav') %>
+</body>
+
+</html>

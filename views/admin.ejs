@@ -1,0 +1,560 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NEO.EG</title>
+  <link rel="stylesheet" href="css/admin.css" />
+  <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+
+  <style>
+    #EditProduct {
+      position: fixed;
+      color: black;
+      overflow: auto;
+      /* Enable scrolling */
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background-color: white;
+      padding: 20px;
+      border: 9px solid black;
+      display: none;
+      flex-direction: column;
+      max-height: 70%;
+      /* Adjust height as needed */
+      width: 400px;
+      /* Adjust width as needed */
+    }
+
+    #EditProduct input,
+    #EditProduct select {
+      margin: 0.5rem;
+      line-height: 34px;
+      width: 100%;
+      /* Full width */
+    }
+
+    #EditProduct h2 {
+      color: black;
+    }
+
+    #EditProduct button {
+      color: black;
+      background-color: white;
+      display: flex;
+      font-size: 1.2rem;
+      margin-top: 1rem;
+    }
+
+    .ProductsPage-button button {
+      color: black;
+      background-color: white;
+      float: right;
+      border-radius: 30rem;
+      padding: 0.5rem;
+      margin: 0.1rem;
+      display: flex;
+      font-size: 1.2rem;
+    }
+  </style>
+
+  <!-- page icon -->
+  <link rel="icon" type="image/x-icon" href="Images/Logo-removebg-preview (1).png" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" />
+</head>
+
+<body>
+
+  <div class="AdminNavBar">
+
+    <button class="navBar" onclick="openPage('Home')"><i class="fa-solid fa-house"></i></button>
+    <button class="navBar" onclick="openPage('Dashboard')"><i class="fa-solid fa-gauge"></i></button>
+    <button class="navBar" onclick="openPage('Orders')"><i class="fa-regular fa-calendar-days"></i></button>
+    <button class="navBar" onclick="openPage('Products')"><i class="fa-solid fa-barcode"></i></button>
+    <button class="navBar" onclick="openUserPage()"><i class="fa-solid fa-users"></i></i></button>
+    <br>
+    <br>
+    <br>
+    <div id="logout">
+      <a href="/register" class="navBar">
+        <i class="fa fa-sign-out" aria-hidden="true"></i>
+      </a>
+    </div>
+
+
+  </div>
+
+  <div class="MyaccContainer">
+    <div id="Home" class="tabcontent">
+    </div>
+
+    <div id="Dashboard" class="tabcontent">
+
+      <h1>Dashboard</h1>
+      <div class="insights">
+
+        <div class="box box1">
+          <div class="text">
+            <h2 class="topic-heading">1600$</h2>
+            <h2 class="topic">Sales Today</h2>
+          </div>
+
+
+
+
+        </div>
+
+        <div class="box box2">
+          <div class="text">
+            <h2 class="topic-heading">50.2k</h2>
+            <h2 class="topic">Sales This Month</h2>
+          </div>
+
+        </div>
+
+        <div class="box box3">
+          <div class="text">
+            <h2 class="topic">Customers Count</h2>
+            <p id="userCount">Loading...</p> <!-- Add a <p> tag to display the user count -->
+          </div>
+        </div>
+
+        <script>
+          fetch('/admin/userCount')
+            .then(response => response.json())
+            .then(data => {
+              document.getElementById('userCount').textContent = data.userCount;
+            })
+            .catch(error => {
+              console.error('Error fetching user count:', error);
+              document.getElementById('userCount').textContent = 'Error loading user count';
+            });
+        </script>
+      </div>
+
+    </div>
+
+
+    <div id="Orders" class="tabcontent">
+
+      <h1>ORDERS</h1>
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Date</th>
+            <th>Items(s)</th>
+            <th>Sum</th>
+          </tr>
+
+
+        </thead>
+        <tbody>
+          <tr>
+            <td>123456</td>
+            <td>2024-04-27</td>
+            <td>2</td>
+            <td>1600 EGP</td>
+          </tr>
+
+        </tbody>
+      </table>
+    </div>
+
+    <div id="Products" class="tabcontent">
+
+
+      <h1>PRODUCTS</h1>
+      <% if (products && products.length> 0) { %>
+        <table class="order-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Quantity</th>
+              <th>Image</th>
+              <th>Price</th>
+              <th>Delete</th>
+              <th>edit</th>
+            </tr>
+          </thead>
+          <tbody>
+            <% products.forEach(product=> { %>
+              <tr>
+                <td>
+                  <%= product._id %>
+                </td>
+
+                <td>
+                  <%= product.name %>
+                </td>
+
+                <td>
+                  <%= product.category %>
+                </td>
+                <td>
+                  <%= product.quantity %>
+                </td>
+
+                <td><img src="/images/<%= product.image %>" alt="<%= product.name %>"
+                    style="width: 100px; height: auto;"></td>
+
+                <td>
+                  <%= product.price %> EGP
+                </td>
+                <td><button onclick="deleteProduct('<%= product._id %>')">Delete</button></td>
+
+                <td> <button onclick="showEditProduct()">Edit product</button>
+                </td>
+
+              </tr>
+              <% }) %>
+          </tbody>
+        </table>
+        <% } else { %>
+          <p>There are no products to display...</p>
+          <% } %>
+
+
+            <div class="ProductsPage-button">
+
+
+              <button onclick="showAddProduct()">Add Product</button>
+              <div id="AddProduct" style="display: none;">
+                <form id="form" action="/admin/AddProduct" method="post" enctype="multipart/form-data">
+                  <h2>Add product</h2>
+                  <br>
+                  <p>Product Name:</p>
+                  <input type="text" id="name" placeholder="Enter Product Name:" name="name">
+                  <div id="productnameError" class="error"></div>
+
+                  <p>Product Category:</p>
+                  <select id="category" name="category">
+                    <option value="hoodies">Hoodies</option>
+                    <option value="shirts">Shirts</option>
+                    <option value="jackets">Jackets</option>
+                  </select>
+                  <div id="productcategoryError" class="error"></div>
+
+                  <p>Quantity:</p>
+                  <input type="text" id="quantity" placeholder="Enter Quantity:" name="quantity">
+                  <div id="quantityError" class="error"></div>
+
+                  <p>Price:</p>
+                  <input type="text" id="price" placeholder="Enter Price:" name="price">
+                  <div id="priceError" class="error"></div>
+
+                  <p>Product Image:</p>
+                  <input type="file" id="image" name="image">
+                  <div id="imageError" class="error"></div>
+
+                  <input type="submit" value="Submit">
+                  <button type="button" onclick="hideAddProduct()">Cancel</button>
+                </form>
+              </div>
+
+              <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+              <link rel="stylesheet" type="text/css"
+                href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+              <script>
+                function openUserPage() {
+                  window.location.href = "usersss";
+                }
+                function showAddProduct() {
+                  document.getElementById('AddProduct').style.display = 'block';
+                }
+
+                function hideAddProduct() {
+                  document.getElementById('AddProduct').style.display = 'none';
+                }
+
+                function validateForm() {
+                  let isValid = true;
+
+                  // Clear previous error messages
+                  document.querySelectorAll('.error').forEach(el => el.textContent = '');
+
+                  // Product Name validation
+                  const name = document.getElementById('name').value;
+                  if (!name) {
+                    document.getElementById('productnameError').textContent = 'Product name is required';
+                    isValid = false;
+                  }
+
+                  // Category validation
+                  const category = document.getElementById('category').value;
+                  if (!category) {
+                    document.getElementById('productcategoryError').textContent = 'Category is required';
+                    isValid = false;
+                  }
+
+                  // Quantity validation
+                  const quantity = document.getElementById('quantity').value;
+                  if (!quantity || isNaN(quantity) || quantity <= 0) {
+                    document.getElementById('quantityError').textContent = 'Please enter a valid quantity';
+                    isValid = false;
+                  }
+
+                  // Price validation
+                  const price = document.getElementById('price').value;
+                  if (!price || isNaN(price) || price <= 0) {
+                    document.getElementById('priceError').textContent = 'Please enter a valid price';
+                    isValid = false;
+                  }
+
+                  // Image validation
+                  const image = document.getElementById('image').files[0];
+                  if (!image) {
+                    document.getElementById('imageError').textContent = 'Product image is required';
+                    isValid = false;
+                  }
+
+                  return isValid;
+                }
+
+                document.getElementById('form').onsubmit = function (e) {
+                  e.preventDefault();
+                  if (validateForm()) {
+                    const formData = new FormData(this);
+
+                    fetch('/admin/AddProduct', {
+                      method: 'POST',
+                      body: formData
+                    })
+                      .then(response => response.json())
+                      .then(data => {
+                        if (data.success) {
+                          Toastify({
+                            text: "Product added successfully",
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "green",
+                          }).showToast();
+                          setTimeout(() => location.reload(), 3000); // Reload after 3 seconds
+                        } else {
+                          Toastify({
+                            text: "Error adding product: " + data.message,
+                            duration: 3000,
+                            gravity: "top",
+                            position: "right",
+                            backgroundColor: "red",
+                          }).showToast();
+                        }
+                      })
+                      .catch(error => {
+                        console.error('Error:', error);
+                        Toastify({
+                          text: "Error adding product",
+                          duration: 3000,
+                          gravity: "top",
+                          position: "right",
+                          backgroundColor: "red",
+                        }).showToast();
+                      });
+                  }
+                };
+
+                function confirmDeleteProduct(id) {
+                  if (confirm("Are you sure you want to delete this product?")) {
+                    deleteProduct(id);
+                  }
+                }
+
+                function deleteProduct(id) {
+                  fetch('/admin/deleteProduct', {
+                    method: 'POST',
+                    headers: {
+                      'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ id: id })
+                  })
+                    .then(response => response.json())
+                    .then(data => {
+                      if (data.success) {
+                        Toastify({
+                          text: "Product deleted successfully",
+                          duration: 3000,
+                          gravity: "top",
+                          position: "right",
+                          backgroundColor: "green",
+                        }).showToast();
+                        setTimeout(() => location.reload(), 3000); // Reload after 3 seconds
+                      } else {
+                        Toastify({
+                          text: "Error deleting product: " + data.message,
+                          duration: 3000,
+                          gravity: "top",
+                          position: "right",
+                          backgroundColor: "red",
+                        }).showToast();
+                      }
+                    })
+                    .catch(error => {
+                      console.error('Error:', error);
+                      Toastify({
+                        text: "Error deleting product",
+                        duration: 3000,
+                        gravity: "top",
+                        position: "right",
+                        backgroundColor: "red",
+                      }).showToast();
+                    });
+                }
+              </script>
+
+
+
+
+
+
+
+
+
+              <div id="EditProduct">
+                <% products.forEach(product=> { %>
+                  <form action="/admin/edit/<%= product._id %>?_method=PUT" method="post" id="form1"
+                    enctype="multipart/form-data">
+                    <h2>Edit product</h2>
+                    <br>
+                    <p>Product Name:</p>
+                    <input type="text" id="name" placeholder="Enter Product Name:" name="name"
+                      value="<%= product.name %>">
+                    <div id="productnameError" class="error"></div>
+                    <p>Product Category:</p>
+                    <select id="category" name="category">
+                      <option value="hoodies" <%=product.category==='hoodies' ? 'selected' : '' %>>Hoodies</option>
+                      <option value="shirts" <%=product.category==='shirts' ? 'selected' : '' %>>Shirts</option>
+                      <option value="jackets" <%=product.category==='jackets' ? 'selected' : '' %>>Jackets</option>
+                    </select>
+                    <div id="productcategoryError" class="error"></div>
+                    <p>Quantity:</p>
+                    <input type="text" id="quantity" placeholder="Enter Quantity:" name="quantity"
+                      value="<%= product.quantity %>">
+                    <div id="quantityError" class="error"></div>
+                    <p>Price:</p>
+                    <input type="text" id="price" placeholder="Enter Price:" name="price" value="<%= product.price %>">
+                    <div id="priceError" class="error"></div>
+                    <p>Product Image:</p>
+                    <input type="file" id="image" name="image">
+                    <img src="/images/<%= product.image %>" alt="Product Image" width="100">
+                    <!-- Display current image -->
+                    <input type="submit" name="Submit">
+                    <button type="button" onclick="hidePEditWindow()">Cancel</button>
+                  </form>
+                  <% }) %>
+              </div>
+
+            </div>
+
+    </div>
+
+
+
+
+    <div id="Users" class="tabcontent">
+      <h1>USERS</h1>
+      <table class="order-table">
+        <thead>
+          <tr>
+            <th>First Name</th>
+            <th>Last Name</th>
+            <th>Username </th>
+            <th>Email</th>
+            <th>Address</th>
+            <th>Phone</th>
+            <th>Delete</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>lionel</td>
+            <td>messi</td>
+            <td>ankaramessi</td>
+            <td>messi@gmail.com</td>
+            <td>minya</td>
+            <td>01000000001</td>
+            <td><input type="checkbox" onclick="" value="Delete"></input></td>
+
+
+          </tr>
+
+        </tbody>
+      </table>
+
+      <div class="UsersPage-button">
+
+        <button onclick="showAlert()">Delete</button>
+
+        <button onclick="showAddUser()">Add User</button>
+
+
+
+
+
+
+        <button onclick="showEditUser()">Edit User</button>
+        <div id="EditUser">
+          <form id="form" onsubmit="return EditInput();">
+
+            <h2>Edit User</h2>
+            <br>
+            <p>First Name:</p>
+            <input type="text" id=" FirstName" placeholder="Enter First Name:">
+            <div id="firstNameError" class="error"></div>
+
+
+            <p>Last Name:</p>
+            <input type="text" id="LastName" placeholder="Enter Last Name:">
+            <div id="lastNameError" class="error"></div>
+
+
+            <p>Username Name:</p>
+            <input type="text" id="Username" placeholder="Enter Username Name:">
+            <div id="usernameError" class="error"></div>
+
+
+            <p>Email:</p>
+            <input type="text" id="Email" placeholder="Enter Email:">
+            <div id="emailError" class="error"></div>
+
+
+            <p>Address:</p>
+            <input type="text" id="Adress" placeholder="Enter Adress:">
+            <div id="addressError" class="error"></div>
+
+
+            <p>Phone:</p>
+            <input type="text" id="Phone" placeholder="Enter  Phone:">
+            <div id="phoneError" class="error"></div>
+
+
+            <p>Password:</p>
+            <input type="password" id="Password" placeholder="Enter Password:">
+            <div id="passwordError" class="error"></div>
+
+
+
+            <input type="submit" name="Submit">
+            <button type="button" onclick="hideAddWindow()">Cancel</button>
+
+
+
+          </form>
+        </div>
+
+
+
+
+      </div>
+
+    </div>
+  </div>
+  <script src="js/admin.js"></script>
+
+</body>
+
+</html>

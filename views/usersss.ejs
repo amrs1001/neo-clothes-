@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <title>Admin Users</title>
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+</head>
+<body class="bodyy">
+    <div>
+        <h1 class="user" style="margin-bottom: 20px;">Users</h1>
+    </div>
+
+    <div id="overlay" style="display: block;">
+        <% if (users && users.length > 0) { %>
+            <table class="tab">
+                <thead>
+                    <tr>
+                        <th class="text">ID</th>
+                        <th class="text">Username</th>
+                        <th class="text">Email</th>
+                        <th class="text">Phone Number</th>
+                        <th class="text"></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <% users.forEach(function(user) { %>
+                        <tr>
+                            <td class="text"><%= user._id %></td>
+                            <td class="text"><%= user.fullName %></td>
+                            <td class="text"><%= user.email %></td>
+                            <td class="text"><%= user.phoneNumber %></td>
+                            <td class="text">
+                                <!-- Add buttons or actions here if needed -->
+                            </td>
+                        </tr>
+                    <% }); %>
+                </tbody>
+            </table>
+        <% } else { %>
+            <p>There are no Users to display...</p>
+        <% } %>
+    </div>
+
+    <style>
+        .bodyy {
+            background-color:white;
+            text-align: center;
+            padding-top: 50px;
+        }
+
+        .user {
+            color: black;
+        }
+
+        .tab {
+            width: 80%;
+            margin: auto;
+            border-collapse: collapse;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        .tab th, .tab td {
+            padding: 10px;
+            border-bottom: 1px solid black;
+        }
+
+        .tab th {
+            background-color: black;
+            color: white;
+            text-align: left;
+        }
+
+        .tab tbody tr:nth-child(even) {
+            background-color:grey;
+        }
+
+        .tab tbody tr:hover {
+            background-color: green;
+        }
+
+        .text {
+            text-align: center;
+        }
+
+        #overlay {
+            display: block; /* Ensure the overlay is visible */
+        }
+    </style>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>

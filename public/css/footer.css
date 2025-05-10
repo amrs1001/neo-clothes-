@@ -1,0 +1,205 @@
+.footer {
+    width: 100%;
+  }
+  
+  .footerContainer {
+    width: 100%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+  }
+  
+  .footerImage {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: left;
+    flex-direction: column;
+    flex-wrap: wrap;
+    border: 4px solid black;
+    border-style: double;
+    padding: 0.1rem;
+  
+  }
+  
+  .footerImage Img {
+    background-color: white;
+    max-height: 10rem;
+    max-width: 100%;
+    overflow: hidden;
+    display: flex;
+    color: white;
+    width: 50rem;
+    height: 5rem;
+    object-fit: none;
+    position: relative;
+  }
+  
+  .footerSearch input {
+    font-size: 1.7rem;
+    border: 2px solid black;
+    margin-top: 0.1rem;
+    text-align: center;
+  
+  }
+  
+  .footerSocialContainer {
+    background-color: black;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+  }
+  
+  .SendEmail {
+    display: flex;
+    flex-direction: column;
+    color: white;
+    align-items: flex-start;
+    font-size: 1.2rem;
+  }
+  
+  .SendEmail input {
+    font-size: 1rem;
+    border: 1px solid white;
+    margin-top: 0.1rem;
+    padding-left: 5px;
+    text-align: center;
+    width: 300px;
+    border-style: double;
+    line-height: 25px;
+    border-radius: 0.5rem;
+  }
+  .SendEmail button{
+    padding: 5px 5px;
+    font-size: 0.5rem;
+    background-color: transparent;
+    border: white;
+    border-radius: 15rem;
+    border-style: groove;
+    color: white;
+    cursor: pointer;
+  }
+  
+  
+  .footerSocial {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0 0;
+  }
+  
+  .footerSocial a {
+    background-color: black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0.3rem;
+    padding: 5px 5px;
+    font-size: 1.3rem;
+    text-decoration: none;
+    border-radius: 50%;
+    border: 2px solid black;
+  }
+  
+  .footerContent {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.2rem;
+    width: 100%;
+    padding: 1rem 0rem;
+    color: black;
+    justify-content: flex-start;
+  }
+  
+  .footerContent1 {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    justify-content: flex-start;
+    padding-left: 1rem;
+  }
+  
+  .footerContent1 h6 {
+    font-size: 1.5rem;
+  }
+  
+  .footerContent1 p {
+    font-size: 0.8rem;
+    width: 100%;
+    text-align: left;
+  }
+  
+  .footerContent1 a {
+    color: black;
+  }
+  
+  .footerContent1 a:hover {
+    color: pink;
+    transition: 0.5;
+    filter: drop-shadow(15);
+  }
+  
+  .footerQuickHelp {
+    width: 99.4%;
+    display: flex;
+    padding: 0.2rem;
+    background-color: black;
+    justify-content: center;
+  
+  }
+  
+  .footerQuickHelp a {
+    color: white;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 5px;
+    text-shadow: 2px;
+    text-decoration: none;
+   
+  }
+  
+  @media (max-width: 600px) {
+    .footerContent {
+      font-size: 1rem;
+    }
+  
+    .footerImage img {
+      height: 3rem;
+  
+    }
+  
+    .footerContent a {
+      font-size: 0.5rem;
+      margin: 0.5rem 0.2rem;
+    }
+  
+    .footerContent1 h6 {
+      font-size: 0.8rem;
+    }
+  
+    .footerContent1 p {
+      font-size: 0.5rem;
+      width: 100%;
+    }
+  
+    .SendEmail input {
+      font-size: 0.8rem;
+      width: 150px;
+    }
+  
+    .SendEmail p {
+      font-size: 0.8rem;
+  
+    }
+  
+    .footerQuickHelp a {
+      font-size: 0.8rem;
+    }
+  }

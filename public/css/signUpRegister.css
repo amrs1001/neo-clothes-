@@ -1,0 +1,272 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Montserrat', sans-serif;
+}
+
+body{
+    background-image: url('../images/neo.jpg')   ;
+    
+     background-size: cover;
+     background-position: center; /* Center the background image */
+     background-repeat: no-repeat;
+     display: flex;
+     align-items: center;
+    justify-content: center;
+    flex-direction: column; /* Center the background image w kol elklam fy ns saf7a bzbt  */
+    height: 100vh;
+    
+}
+
+
+/* bn3ml box abyd */
+.register{
+  background-color: #fff;
+  border-radius: 30px;
+ 
+  position: relative;
+  overflow: hidden;
+  width:  650px;
+  max-width: 100%;
+  min-height:80%;
+}
+
+/* bnzbt fonts w msahat mben klam */
+.register p{
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.3px;
+  margin: 20px 0;
+}
+
+
+
+/*bnzbt klam w hnkhly fy ns saf7a */
+.register form{
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 40 0 0 px;
+  height: 100%;
+}
+
+/*bnzbt alshkl w badding w nkhlehom fy ns */
+
+.form-register{
+ 
+  transition: all 0.6s ease-in-out;
+}
+.register button{
+  background-color: #000000; /* Green background */
+border: none; /* Remove borders */
+color: white; /* White text */
+padding: 15px 32px; /* Padding */
+text-align: center; /* Center text */
+text-decoration: none; /* Remove underline */
+display: inline-block; /* Make it a block element to center it */
+font-size: 16px; /* Font size */
+margin: 4px 2px; /* Margin */
+transition-duration: 0.4s; /* Transition duration */
+cursor: pointer; /* Cursor on hover */
+border-radius: 8px; /* Rounded corners */
+}
+
+.register button:hover {
+background-color: #45a049; /* Darker green on hover */
+}
+
+
+/* bnzbt shkl bta3  email w password w name*/
+.register input{
+  background-color: #eee;
+  border: none;
+  margin: 8px ;
+  padding: 10px 15px;
+  font-size: 15px;
+  border-radius: 8px;
+  width: 80%; /* Adjust the width as needed */
+  max-width: 300px; /* Set a maximum width to prevent excessive stretching */
+  text-align: center; /* Center the text horizontally */
+  outline: none;
+}
+
+
+
+.h1
+{
+color: #000000;
+margin: 5%;
+
+}
+
+.checkbox input {
+   
+  
+   
+    margin-left: -114px; /* Adjust the margin as needed */
+}
+
+    .checkbox label {
+        font-size: 12px;
+        font-family: Arial, Helvetica, sans-serif;
+        
+        margin-left: -113px; /* Adjust the margin as needed */
+      
+    }
+    
+
+
+
+    .error {
+      font-weight: bold; 
+      color: red;
+    }
+    
+
+
+
+
+
+
+
+
+
+/* bnzbt shkl w font buttoms */
+.validation button{
+    background-color: #000000;
+    color: #fff;
+    font-size: 12px;
+    padding: 10px 45px;
+    border: 1px solid transparent;
+    border-radius: 8px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-top: 10px;
+   
+}
+
+
+
+/* Change button size on hover */
+.validation button:hover {
+  color: #fff; /* New text color */
+  transform: scale(1.1); /* Increase size by 10% */
+
+}
+
+
+
+
+
+
+.icons a{
+  background: #ecf0f3;
+  position: relative;
+  height: 60px;
+  width: 60px;
+  margin: 0 10px;
+  display: inline-flex;
+  text-decoration: none;
+  border-radius: 50%;
+  transition: all 0.3s;
+  box-shadow: -1px -1px 2px #ffffff, /* Inner shadow (reduced spread) */
+  1px 1px 3px #cccccc; 
+}
+.icons a:hover:before{
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  border-radius: 50%;
+  background: #ecf0f3;
+  box-shadow: inset -3px -3px 7px #ffffff,
+              inset 3px 3px 5px #ceced1;
+}
+
+.icons a.goggle i{
+  color: #000000;
+  width: 100%;
+  height: 100%; /* Add this line to set the height of the icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons a.fb i {
+  color: #006eff;
+  width: 100%;
+  height: 100%; /* Add this line to set the height of the icon */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+/* Media queries for responsiveness */
+@media (max-width: 48rem) { /* 768px */
+  body {
+      height: auto;
+      padding: 1.25rem;
+  }
+
+  .register {
+      width: 90%;
+      min-height: auto;
+      padding: 1.25rem;
+  }
+
+  .register input {
+      width: 90%;
+      max-width: none;
+  }
+
+  .checkbox input,
+  .checkbox label {
+      margin-left: 0;
+      text-align: center;
+      width: 100%;
+  }
+
+  .checkbox label {
+      margin-top: 0.625rem;
+  }
+
+  .h1 {
+      margin: 1.25rem 0;
+      text-align: center;
+  }
+}
+
+@media (max-width: 30rem) { /* 480px */
+  .register {
+      width: 100%;
+      min-height: auto;
+      padding: 1.25rem;
+  }
+
+  .register input {
+      width: 95%;
+  }
+
+  .icons a {
+      height: 3.125rem;
+      width: 3.125rem;
+  }
+
+  .register button {
+      width: 95%;
+      padding: 0.625rem;
+  }
+
+  .h1 {
+      font-size: 1.5rem;
+  }
+}
